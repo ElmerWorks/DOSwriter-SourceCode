@@ -1,0 +1,244 @@
+package com.example.minimaltexteditor.editor
+
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.MotionEvent
+import android.view.View
+import kotlin.math.max
+import kotlin.math.min
+
+class SelectionOverlay @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
+
+    data class ThemeColors(val text: Int, val background: Int)
+    private var themePreviews: List<ThemeColors>? = null
+    private var showPreviewMargins = true
+
+    private var items: List<String> = emptyList()
+    private var selectedIndex = 0
+    private var scrollOffset = 0
+    private var onItemSelected: ((Int) -> Unit)? = null
+    private var onCancelled: (() -> Unit)? = null
+
+    private val bgPaint = Paint().apply {
+        color = Color.rgb(20, 20, 20) // Fully opaque
+        style = Paint.Style.FILL
+    }
+
+    private val textPaint = Paint().apply {
+        color = Color.WHITE
+        textSize = 36f
+        isAntiAlias = true
+    }
+
+    private val selectionPaint = Paint().apply {
+        color = Color.argb(120, 0, 200, 0)
+        style = Paint.Style.FILL
+    }
+
+    private val previewBgPaint = Paint()
+    private val previewMarginPaint = Paint()
+    private val previewTextPaint = Paint().apply {
+        textSize = 24f
+        isAntiAlias = true
+    }
+
+    private val itemHeight = 70f
+    private var lastShowTime = 0L
+
+    fun show(title: String, options: List<String>, initialIndex: Int = 0, onSelect: (Int) -> Unit, onCancel: () -> Unit, previews: List<ThemeColors>? = null) {
+        items = listOf(title.uppercase()) + options
+        themePreviews = previews
+        selectedIndex = initialIndex + 1
+        scrollOffset = 0
+        updateScroll()
+        onItemSelected = onSelect
+        onCancelled = onCancel
+        visibility = VISIBLE
+        lastShowTime = System.currentTimeMillis()
+        invalidate()
+    }
+
+    private fun updateScroll() {
+        val maxVisible = calculateMaxVisible()
+        if (maxVisible <= 0) return
+        if (selectedIndex < scrollOffset + 1 && selectedIndex > 0) {
+            scrollOffset = selectedIndex - 1
+        } else if (selectedIndex >= scrollOffset + maxVisible) {
+            scrollOffset = selectedIndex - maxVisible + 1
+        }
+        scrollOffset = scrollOffset.coerceIn(0, max(0, items.size - maxVisible))
+    }
+
+    private fun calculateMaxVisible(): Int {
+        val availableHeight = height * 0.7f
+        return (availableHeight / itemHeight).toInt()
+    }
+
+    fun selectIndex(index: Int) {
+        if (index + 1 < items.size) {
+            selectedIndex = index + 1
+            confirm()
+        }
+    }
+
+    fun moveUp() {
+        if (selectedIndex > 1) {
+            selectedIndex--
+            updateScroll()
+            invalidate()
+        }
+    }
+
+    fun moveDown() {
+        if (selectedIndex < items.size - 1) {
+            selectedIndex++
+            updateScroll()
+            invalidate()
+        }
+    }
+
+    fun confirm() {
+        val callback = onItemSelected
+        hide()
+        if (selectedIndex > 0) {
+            callback?.invoke(selectedIndex - 1)
+        }
+    }
+
+    fun hide() {
+        visibility = GONE
+    }
+
+    fun togglePreviewMargins() {
+        showPreviewMargins = !showPreviewMargins
+        invalidate()
+    }
+
+    fun getTitle(): String = if (items.isNotEmpty()) items[0] else ""
+    fun getSelectedIndex(): Int = selectedIndex
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (visibility != VISIBLE) return false
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            // Debounce touches for 500ms after showing to prevent accidental e-ink "refresh" touches
+            if (System.currentTimeMillis() - lastShowTime < 500) return true
+
+            val w = width.toFloat()
+            val h = height.toFloat()
+            if (event.x < w * 0.1f || event.x > w * 0.9f || event.y < h * 0.15f || event.y > h * 0.85f) {
+                hide()
+                onCancelled?.invoke()
+                return true
+            }
+
+            val startY = h * 0.22f
+            val clickedIndex = ((event.y - startY) / itemHeight).toInt() + scrollOffset
+            if (clickedIndex > 0 && clickedIndex < items.size) {
+                selectedIndex = clickedIndex
+                invalidate()
+                performClick()
+                confirm()
+                return true
+            }
+        }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
+        return true
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        if (items.isEmpty()) return
+        val w = width.toFloat()
+        val h = height.toFloat()
+        canvas.drawRect(w * 0.1f, h * 0.15f, w * 0.9f, h * 0.85f, bgPaint)
+        val x = w * 0.15f
+        val startY = h * 0.22f
+        val maxVisible = calculateMaxVisible()
+        for (i in 0 until maxVisible) {
+            val itemIdx = scrollOffset + i
+            if (itemIdx >= items.size) break
+            val y = startY + (i * itemHeight)
+            if (itemIdx == selectedIndex) {
+                canvas.drawRect(w * 0.1f, y - 45f, w * 0.9f, y + 20f, selectionPaint)
+            }
+            textPaint.color = if (itemIdx == 0) Color.GRAY else Color.WHITE
+            canvas.drawText(items[itemIdx], x, y, textPaint)
+        }
+
+        // Draw Theme Preview if available
+        themePreviews?.let { previews ->
+            val previewIdx = selectedIndex - 1
+            if (previewIdx >= 0 && previewIdx < previews.size) {
+                val theme = previews[previewIdx]
+                if (Color.alpha(theme.background) == 0 && Color.alpha(theme.text) == 0) return@let
+
+                val previewX = w * 0.55f
+                val previewY = h * 0.35f
+                val previewW = w * 0.3f
+                val previewH = h * 0.3f
+
+                // Outer Margin
+                val bgColor = theme.background
+                val r = Color.red(bgColor)
+                val g = Color.green(bgColor)
+                val b = Color.blue(bgColor)
+                val luminance = (0.299 * r + 0.587 * g + 0.114 * b)
+                val marginColor = if (luminance > 128) Color.argb(40, 0, 0, 0) else Color.argb(40, 255, 255, 255)
+                
+                // Draw actual background first
+                previewBgPaint.color = theme.background
+                canvas.drawRect(previewX, previewY, previewX + previewW, previewY + previewH, previewBgPaint)
+                
+                // Draw margin overlay (non-overlapping rectangles)
+                if (showPreviewMargins) {
+                    previewMarginPaint.color = marginColor
+                    val marginSize = previewW * 0.15f
+                    
+                    // Top and Bottom (Full width)
+                    canvas.drawRect(previewX, previewY, previewX + previewW, previewY + marginSize, previewMarginPaint)
+                    canvas.drawRect(previewX, previewY + previewH - marginSize, previewX + previewW, previewY + previewH, previewMarginPaint)
+                    
+                    // Sides (Only between Top and Bottom to avoid double-overlap corners)
+                    canvas.drawRect(previewX, previewY + marginSize, previewX + marginSize, previewY + previewH - marginSize, previewMarginPaint)
+                    canvas.drawRect(previewX + previewW - marginSize, previewY + marginSize, previewX + previewW, previewY + previewH - marginSize, previewMarginPaint)
+                }
+
+                // Text
+                previewTextPaint.color = theme.text
+                val text = if (showPreviewMargins) {
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                } else {
+                    "Vox audita perit, littera scripta manet. Silentium mentem ad verba clara ducit."
+                }
+                
+                val marginOffset = if (showPreviewMargins) previewW * 0.15f else 0f
+                
+                // Simple word wrap for preview
+                var ty = previewY + marginOffset + 40f
+                val words = text.split(" ")
+                var line = ""
+                for (word in words) {
+                    val testLine = if (line.isEmpty()) word else "$line $word"
+                    if (previewTextPaint.measureText(testLine) < previewW - 2 * marginOffset) {
+                        line = testLine
+                    } else {
+                        canvas.drawText(line, previewX + marginOffset + 10f, ty, previewTextPaint)
+                        ty += 35f
+                        line = word
+                    }
+                }
+                canvas.drawText(line, previewX + marginOffset + 10f, ty, previewTextPaint)
+            }
+        }
+    }
+}
