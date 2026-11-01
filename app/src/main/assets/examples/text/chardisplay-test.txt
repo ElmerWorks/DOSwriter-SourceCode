@@ -1,0 +1,18 @@
+﻿Display Test File
+
+End-of-Line marker: â†µ
+Paragraph mark: Â¶
+Return symbol: âŽ
+
+Unicode values:
+â†µ = U+21B5
+Â¶ = U+00B6
+âŽ = U+23CE
+
+Sample text:
+This line contains â†µ
+This line contains Â¶
+This line contains âŽ
+
+All three symbols on one line:
+â†µ Â¶ âŽ

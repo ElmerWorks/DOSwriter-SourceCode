@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Minimal Text Editor"
+rootProject.name = "DOSwriter"
 include(":app")

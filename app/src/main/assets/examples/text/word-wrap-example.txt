@@ -1,0 +1,177 @@
+This is an example of a text file with newline (\n) characters at the end of sentences.
+
+It is a hard-wrapped text file, like many older Project Gutenberg and OCR documents. Every line ends with a newline, and paragraphs are represented by a blank line (two consecutive newlines).
+
+To see the newline characters, turn on Newline visibility in Ctrl-L Setting>Text Display>CRLF Display.
+
+For proper word wrapping in DOSwriter and other editors the newlines can be removed with CTRL-ALT-U (Unwrap Paragraphs)
+
+Or CTRL-L Setting>Text Display>Unwrap Paragraphs.
+
+Try it now on this text.
+
+
+LIFETIME FINANCIAL MANAGEMENT
+
+I. The Economy In Which We Live And Our Daily Bread
+
+1. The Industrial Economy
+
+As a family or as a single person, we are members of a national
+economy and society making our contributions to its performance,
+and being rewarded for our efforts according to the value the
+economy and society determine for them. The reward we get for our
+efforts as income is what we use to pay for our current needs and
+to provide for the future. As a family or as a single person, we
+live our lives as independent people, but the twists and turns
+the economy and society as a whole take over time work their
+influence on what fate has in store for us. The better we
+understand how the economy works and its interaction with our
+society, the better we will be at managing for today and planning
+for tomorrow. So let us look into the nature and motivation of
+the modern economy.
+
+In a society we live by what we produce. And in a world made up
+of national economies, we trade some of what we produce with
+other countries for what they produce. What we produce and what
+we get in trade with other countries is based on the demand we
+place on ourselves for privately produced goods and services as
+well as those goods and services we insist be produced by
+government. Individually, we exert a demand for some of those
+goods and services according to our unique preferences and the
+income we have to satisfy those preferences.
+
+A modern economy is based on money as a means for exchanging
+goods and services. There is a circular flow of activity in the
+production of goods and services in which workers of all kinds
+are compensated individually with money for what they do,
+representing their share of those goods and services available in
+the marketplaces of the economy. For any one individual, however,
+that income may be not only be in the form of wages and salary,
+but also in the form of dividends from ownership in producing
+firms, interest from loans made to others, payments by
+government, rent from property, and gifts from others.
+
+Wages or salary as a share of goods and services depend on the
+value of a person's labor in producing those goods and services;
+what that value might be is determined not only by the
+availability of labor skills, but by the demand of the public at
+large for the goods and services produced by those skills. The
+compensation of a highly talented professional athlete, a
+construction worker, a medical specialist, an office worker, a
+movie actor, and a computer programmer depends on their
+availability and the value the public at large puts on what they
+produce. For most walks of life, education plays an important
+role in the income paid to individuals for the work they do. So
+much of what the public wants today requires skills developed
+only through higher education.
+
+The need for those skills is traceable to successive scientific
+discoveries which have been exploited through investment in the
+means to produce goods and services that enhance our standard of
+living. The greater skills required to produce more valuable
+output are reflected in higher real wages and salaries which are
+transformed into a demand for the very goods and services they
+are instrumental in producing. So we can see if an economy is to
+enjoy increases in its standard of living there must be
+investment in new products and better ways to produce all
+products. Ther must also be increases in wages and salaries
+reflective of greater output, and a transformation of that income
+into demand for the greater output.
+
+Investment in new plant, machinery and new production techniques
+takes place where there is a promise of profit from the marketing
+of goods and services produced by the investment. Investment in
+productive capital in an advanced economy is made by
+entrepreneurs large and small. A large industrial firm like
+General Motors invests in improved means to produce autos it
+already produces, while one or a few individuals on a very small
+scale may create an entirely new product such as as personal
+computer by the investment of their time and meager resources. In
+both instances, the motivation is expectation of profit. Both
+ventures may prove to be successful. In the one, a large company
+replaces existing plant and equipment with more efficient capital
+to produce the same product. In the other, daring entrepreneurs
+start an entirely new industry to produce a product new to the
+consuming public, but a product they believe will be in demand
+for the efficiences and conveniences it opens up for its users.
+
+Whatever form it takes, investment in capital in a modern economy
+expands the capabilities of labor while men and women, to keep up
+with advancing vintages of capital must successively respond to
+the requirements for new and improved skills technology imposes
+on them.
+
+Capital and labor are the key ingredients for producing goods and
+services. But natural resources are an equally important
+ingredient. An industrial economy could not exist in the absence
+of access to natural resources. Some economies such as the United
+States are favored by providence and good fortune with an
+abundance of productive agricultural land, minerals, fossil
+fuels, water and a relatively benign climate. Other economies
+such as Japan may not have all they need as industrial powers
+within their borders but have access to them through trade with
+other countries.
+
+The world today is divided into industrial economies with
+advanced standards of living and economies in various stages of
+development with much lower standards of living. Why there are
+such great disparities in industrial capabilities is a question
+that has no ready answer. But one can be sure that the persistent
+buildup of capital, continuing improvement in labor skills and
+assured access in one way or another to natural resources are
+indispensable to industrial capabilities. The underpinning of it
+all seems to be an enlightened and educated population from which
+have come the scientific discoveries on which industrial
+processes are based; a population which has fomented the spirit
+of entrepreneurship; and a population which has provided not only
+the labor skills compatible with technological applications of
+scientific discoveries, but the demand for the goods and services
+producible by industrialization. The industrial age in which we
+live began in Great Britain some 250 years ago. By that time
+Great Britain and Western Europe were already technologically far
+ahead of the rest of the world. Along with what would become the
+United States and later Japan, their further development rested
+on the characteristics of their populations as described above.
+
+Were it somehow possible for an economy to maintain demand for
+output in keeping with its supply as improvements in goods and
+services were made, the economy could grow steadily at rates
+governed by variations in discoveries and the investment
+necessary to take advantage of them. As it is, demand for output
+and the supply of output only intermittently and temporarily
+coincide with one another. At any one time each is either rising
+or falling for its own reasons. Changes in output and supply that
+differ from one another underlie the undulations of the business
+cycle, a phenomenon of the industrial economy in which producers
+of output and consumers of output are generally  free to follow
+their own objectives. Generally, producers seek to maximize
+profits from marketing the goods and services they produce.
+Consumers seek to maximize their level of satisfaction from
+consuming goods and services arrayed before them in the
+marketplaces. By and large, the array of goods and services
+available to consumers depends in part on the capacity to produce
+them that prior investment makes possible. What prior investment
+has been made was motivated, as observed above, by expectations
+of profit in satisfying anticipated demand for products that
+investment has made possible. Whatever form investment takes,
+whether to produce a new product, reduce the cost of producing an
+existing product or expand the capacity to produce more of the
+same product, there is always some uncertainty for the individual
+producer about how much of what is produced will be absorbed by
+demand. At a time of high output and employment, demand for what
+has been produced is strong, and producers tend to think demand
+will continue and even grow stronger and that production can
+expand to satisfy that rising demand with little impact on
+average cost to produce. Their optimism may be borne out for a
+while but soomer or later they will be disappointed for several
+reasons. In an industrial economy, any one good or service may be
+produced by a number of firms in competition with one another.
+Each of  the firms typically will sense the same opportunity, and
+together in producing more in time almost certainly will produce
+more than the market, that is, demand, is willing to absorb at
+current prices, dampening their enthusiasm for maintaining output
+at current levels. At the same time, the increase in employment
+made by all producers in raising production will be made
+typically only at higher wages and salaries, further reducing the
+difference between revenue and cost.

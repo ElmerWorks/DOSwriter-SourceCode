@@ -1,0 +1,18 @@
+ONLINE SECURITY
+
+Password audit
+Enable 2FA
+Backup password db
+Review recovery keys
+Remove old accounts
+Update browser
+Security update check
+Credit report review
+Fraud alert review
+Backup phone data
+Verify email security
+Update PIN codes
+Review app access
+Check data breaches
+Secure cloud files
+Test backups

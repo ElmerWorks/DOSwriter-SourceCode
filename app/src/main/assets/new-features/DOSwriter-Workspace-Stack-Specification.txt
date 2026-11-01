@@ -1,0 +1,318 @@
+DOSwriter Workspace Stack Specification
+Purpose
+Provide a fast, keyboard-oriented workspace system that allows users to instantly switch between independent writing environments without closing files or losing context.
+A Workspace represents a complete writing session, including buffers, projects, editor state, and preferences.
+The Workspace system is designed for distraction-free writing and optimized for e-ink devices.
+Proposed features topics are denoted by �** �.
+
+
+** Workspace Model
+DOSwriter supports up to 16 Workspaces.
+Each Workspace is completely independent.
+Each Workspace contains:
+* Outline Manager project
+* Buffers 1-8
+* Scratchpad
+* To-Do workspace
+* Cursor positions
+* Recently viewed references
+* Editor state
+* Preview state
+* Workspace preferences
+Switching Workspaces restores the complete writing environment.
+
+** Workspace Selection
+A keyboard shortcut displays the Workspace Selector.
+Example:
+Workspaces
+
+1  Novel
+
+2  Journal
+
+3  Research
+
+4  Programming
+
+5  Blog
+
+6  Shopping
+
+7  Travel
+
+8  More...
+Selecting More� displays Workspaces 9-16.
+The selector is fully keyboard navigable.
+
+** Workspace Naming
+Each Workspace has:
+* Name
+* Optional short description
+Examples:
+Novel
+
+Journal
+
+Programming
+
+Research
+
+Shopping
+
+** Workspace State
+Each Workspace preserves its complete session.
+Example:
+Workspace
+
+Novel
+
+Buffers
+
+1 Chapter8.txt
+
+2 Timeline.txt
+
+3 Characters.txt
+
+4 Empty
+
+5 Notes.md
+
+6 Research.md
+
+7 notes.txt
+
+8 Outline.md
+Switching away and returning restores every file exactly as it was left.
+
+** Independent Outline Managers
+Each Workspace owns its own Outline Manager.
+Example:
+Workspace
+
+Novel
+
+Outline.epol
+
+Workspace
+
+Programming
+
+Outline.epol
+
+Workspace
+
+Journal
+
+Outline.epol
+Opening a Workspace automatically restores its associated Outline.
+
+** Buffer Independence
+Each Workspace maintains an independent set of:
+* Buffers
+* Modified flags
+* Cursor positions
+* Undo history
+* Redo history
+No state is shared between Workspaces.
+
+** Scratchpad Buffer
+Each Workspace owns its own Scratchpad.Buffer (Alt-9)
+
+** To-Do Workspace
+Each Workspace maintains its own To-Do workspace.
+Examples:
+Novel
+
+� Finish Chapter 8
+
+� Rename character
+
+Programming
+
+� Fix parser
+
+� Improve search
+Switching Workspaces automatically switches the associated To-Do workspace.
+
+
+** Preview State
+Reference previews preserve state independently.
+Examples:
+PDF
+* current page
+* zoom level
+Image
+* zoom
+* pan position
+Markdown
+* scroll position
+Text
+* scroll position
+These are restored when returning to the Workspace.
+
+** Workspace Search
+Workspace Selector includes instant search.
+Typing filters the list.
+Example:
+Search
+
+nov
+
+Results
+
+Novel
+
+Novel 2
+
+** Recent Workspaces
+The selector maintains a Most Recently Used (MRU) list.
+Example:
+Recent
+
+Novel
+
+Research
+
+Journal
+
+Programming
+Recently used Workspaces appear first.
+
+** Favorites
+Users may pin favorite Workspaces.
+Pinned Workspaces remain at the top of the selector regardless of MRU order.
+
+** Workspace Switching
+Before switching:
+* modified buffers are detected
+* auto-save rules are applied
+* save prompts appear when required
+Workspace switching never discards unsaved work.
+
+** Session Persistence
+Workspace state is automatically saved when:
+* switching Workspaces
+* exiting DOSwriter
+* background autosave
+* device sleep
+No manual session save is required.
+
+** Workspace File
+Each Workspace is stored as a separate session.
+Example:
+Workspace
+
+Novel.epws
+
+contains
+
+Outline reference
+
+Buffers
+
+Editor state
+
+Recent references
+
+Scratchpad
+
+Preferences
+The Workspace file references existing project files and does not duplicate document contents.
+
+** Workspace Templates
+Users may create template Workspaces.
+Examples:
+Novel
+contains
+Outline
+Timeline
+Characters
+Notes
+Research
+Programming
+contains
+README
+TODO
+Ideas
+API Notes
+Creating a Workspace from a template pre-populates the environment.
+
+** Workspace Duplication
+Users may duplicate a Workspace.
+Useful for:
+* branching a novel
+* experimenting with revisions
+* creating project variations
+Duplicated Workspaces receive independent state.
+
+** Workspace Archive
+Inactive Workspaces may be archived.
+Archived Workspaces:
+* disappear from normal selection
+* retain complete state
+* may be restored later
+
+** Workspace Import/Export
+Users may export or import Workspace files.
+Exports include:
+* Workspace metadata
+* Outline references
+* session state
+* preferences
+Linked documents remain external unless optional packaging is implemented.
+
+** Search Integration
+Global Search supports:
+* Open Workspace
+* Search Workspace names
+* Search Workspace tags (future)
+Example:
+Open Workspace
+
+nov
+
+?
+
+Novel
+
+** Keyboard Workflow
+Suggested shortcuts:
+Ctrl+Alt+W
+
+Workspace Selector
+
+Ctrl+Shift+W
+
+Next Workspace
+
+Ctrl+Alt+Shift+W
+
+Previous Workspace
+
+Ctrl+Alt+N
+
+New Workspace
+
+Ctrl+Alt+R
+
+Rename Workspace
+
+Ctrl+Alt+D
+
+Duplicate Workspace
+
+** Performance
+Workspace switching should complete nearly instantly.
+Only the active Workspace remains fully loaded.
+Inactive Workspaces maintain lightweight session metadata until activated.
+
+** Design Goals
+* Instant context switching
+* Keyboard-first operation
+* Zero disruption to writing flow
+* Minimal UI complexity
+* Optimized for e-ink devices
+* Independent writing environments
+* Fully compatible with Outline Manager and Preview Mode
+* Simple enough for casual users while scalable for power users

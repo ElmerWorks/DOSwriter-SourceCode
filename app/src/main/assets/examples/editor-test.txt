@@ -1,0 +1,10 @@
+SHORT LINE
+This is a medium-length line for testing cursor movement.
+This is a very long line designed to test horizontal scrolling behavior in your editor implementation and should exceed the typical screen width significantly to expose rendering or navigation issues.
+
+    Indented line
+        More indentation
+
+"Quotes", (parentheses), [brackets], {braces}
+
+END

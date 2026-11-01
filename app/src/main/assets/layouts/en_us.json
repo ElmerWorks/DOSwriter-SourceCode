@@ -1,0 +1,77 @@
+{
+  "layout_name": "English-Primary",
+  "rows": [
+    {
+      "keys": [
+        { "label": "ESC", "cmd": "ESC", "weight": 1.5 },
+        { "label": "F1", "cmd": "F1", "weight": 1 },
+        { "label": "F2", "cmd": "F2", "weight": 1 },
+        { "label": "F3", "cmd": "F3", "weight": 1 },
+        { "label": "F4", "cmd": "F4", "weight": 1 },
+        { "label": "F5", "cmd": "F5", "weight": 1 },
+        { "label": "F6", "cmd": "F6", "weight": 1 },
+        { "label": "F7", "cmd": "F7", "weight": 1 },
+        { "label": "F8", "cmd": "F8", "weight": 1 },
+        { "label": "F9", "cmd": "F9", "weight": 1 },
+        { "label": "F10", "cmd": "F10", "weight": 1 },
+        { "label": "F11", "cmd": "F11", "weight": 1 },
+        { "label": "F12", "cmd": "F12", "weight": 1 }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "TAB", "type": "CHAR", "value": "\t", "weight": 2.0 },
+        { "label": "Q", "type": "CHAR", "value": "q", "weight": 1.3 },
+        { "label": "W", "type": "CHAR", "value": "w", "weight": 1.3 },
+        { "label": "E", "type": "CHAR", "value": "e", "weight": 1.3 },
+        { "label": "R", "type": "CHAR", "value": "r", "weight": 1.3 },
+        { "label": "T", "type": "CHAR", "value": "t", "weight": 1.3 },
+        { "label": "Y", "type": "CHAR", "value": "y", "weight": 1.3 },
+        { "label": "U", "type": "CHAR", "value": "u", "weight": 1.3 },
+        { "label": "I", "type": "CHAR", "value": "i", "weight": 1.3 },
+        { "label": "O", "type": "CHAR", "value": "o", "weight": 1.3 },
+        { "label": "P", "type": "CHAR", "value": "p", "weight": 1.3 },
+        { "label": "⌫", "cmd": "DELETE", "weight": 2.5 }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "CTRL", "type": "MODIFIER", "value": "CTRL", "weight": 2.0 },
+        { "label": "A", "type": "CHAR", "value": "a", "weight": 1.3 },
+        { "label": "S", "type": "CHAR", "value": "s", "weight": 1.3 },
+        { "label": "D", "type": "CHAR", "value": "d", "weight": 1.3 },
+        { "label": "F", "type": "CHAR", "value": "f", "weight": 1.3 },
+        { "label": "G", "type": "CHAR", "value": "g", "weight": 1.3 },
+        { "label": "H", "type": "CHAR", "value": "h", "weight": 1.3 },
+        { "label": "J", "type": "CHAR", "value": "j", "weight": 1.3 },
+        { "label": "K", "type": "CHAR", "value": "k", "weight": 1.3 },
+        { "label": "L", "type": "CHAR", "value": "l", "weight": 1.3 },
+        { "label": "ENTER", "type": "CHAR", "value": "\n", "weight": 3.8 }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "SHIFT", "type": "MODIFIER", "value": "SHIFT", "weight": 3.4 },
+        { "label": "Z", "type": "CHAR", "value": "z", "weight": 1.3 },
+        { "label": "X", "type": "CHAR", "value": "x", "weight": 1.3 },
+        { "label": "C", "type": "CHAR", "value": "c", "weight": 1.3 },
+        { "label": "V", "type": "CHAR", "value": "v", "weight": 1.3 },
+        { "label": "B", "type": "CHAR", "value": "b", "weight": 1.3 },
+        { "label": "N", "type": "CHAR", "value": "n", "weight": 1.3 },
+        { "label": "M", "type": "CHAR", "value": "m", "weight": 1.3 },
+        { "label": "↑", "cmd": "UP", "weight": 2.5 },
+        { "label": "DEL", "cmd": "DELETE_FORWARD", "weight": 2.5 }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "NUM", "cmd": "SWITCH_NUM", "weight": 2.5 },
+        { "label": "ALT", "type": "MODIFIER", "value": "ALT", "weight": 2.5 },
+        { "label": "SPACE", "type": "CHAR", "value": " ", "weight": 5.0 },
+        { "label": "←", "cmd": "LEFT", "weight": 2.5 },
+        { "label": "↓", "cmd": "DOWN", "weight": 2.5 },
+        { "label": "→", "cmd": "RIGHT", "weight": 2.5 }
+      ]
+    }
+  ]
+}

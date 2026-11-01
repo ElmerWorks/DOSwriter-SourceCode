@@ -1,0 +1,158 @@
+
+//  Presentation Mode Example
+
+[VAR]: IMAGE-NAME
+[VAR]: HEADER
+[VAR]: TEXTBLOCK
+[VAR]: KEYFUNC
+
+[MACRO] SHOW-IMAGE
+[CLEAR] 5
+[FOCUS-RIGHT] 
+[CLOSE-IMAGE]
+[IMAGE] [FILENAME]
+[FOCUS-LEFT]
+[PRESENTATION]
+# [HEADER]
+** [TEXTBLOCK]
+[PAUSE]
+[ENDMACRO]
+
+// Reset workspace and open split-screen
+[CLEAR] 5
+[CLEAR] 6
+[LINE-DELAY] 500
+[PAUSETIME] 4
+[GOTO_BUFFER] 5
+[PAUSE] 2
+[SPLIT-SCREEN-V] 6
+
+// **********
+[FILENAME] : DOSwriter-Logo.png
+[HEADER] : Welcome to DOSwriter: 
+[TEXTBLOCK] : DOSwriter is a minimalist distraction-free Android writing environment inspired by dedicated writing devices and keyboard-centric workflows such as the Alphasmart Neo and DOS/Unix text editing tools.
+[KEYFUNC] : CTRL-W
+SHOW-IMAGE
+[BEEP]
+[BEEP]
+[STEP]
+
+// ************
+
+// ************
+[FILENAME] : ms-dos_2x.png
+[HEADER] : Welcome to DOSwriter 
+[TEXTBLOCK] :  A Text Editor operated on Unicode character fonts, not rendered fonts such as in word processors like Microsoft Word. In the early days of personal computing they were common on every platform.
+SHOW-IMAGE
+[BEEP]
+[STEP]
+
+
+// NOTE : after this point the script executes correctly
+
+
+[CLEAR] 6
+[PAUSE] 1
+[FOCUS-RIGHT]
+[FOCUS-LEFT]
+[CLEAR] 5
+
+[PRESENTATION]
+## DOSwriter Menu Demo
+* *
+** All DOSwriter commands and settings are available in the menu system.**
+** ALT-F **
+
+[FOCUS-RIGHT] 
+[CLEAR] 6
+[CMD] ALT-F
+[BEEP]
+[STEP]
+[FOCUS-LEFT]
+
+
+//  *******************
+[CLEAR] 6
+[PAUSE] 1
+[FOCUS-RIGHT]
+[FOCUS-LEFT]
+[CLEAR] 5
+
+[PRESENTATION]
+## DOSwriter Menu Demo
+* *
+** DOSwriter has integrated Help**
+** ALT-H**
+
+[FOCUS-RIGHT] 
+[CLEAR] 6
+[CMD] ALT-H
+[BEEP]
+[STEP]
+[FOCUS-LEFT]
+//  ************************
+
+//  ************
+[CLEAR] 5
+[PRESENTATION]
+# BUFFERS
+* *
+** Buffers are important....**
+** There are 8 buffers corresponding to the F1-F8 keys.**
+** ** 
+** Think of the them as a stack of notepads**
+
+[FOCUS-RIGHT] 
+[IMAGE] notepad-stack8.jpg
+[FOCUS-LEFT]
+[PAUSE]
+[CLEAR] 5
+//  ************
+
+//  *************
+[CLEAR] 5
+[PRESENTATION]
+# BUFFERS
+* *
+** Buffers are important....**
+** The F1-F8 key paradigm was an Alphasmart Neo feature that adapts well to modern Bluetooth keyboards.**
+** **
+** Not all keyboards have F keys available so DOSwriter also uses ALT+1-9 keys to swap buffers. **
+
+[FOCUS-RIGHT] 
+[IMAGE] AlphaSmartNeo.jpg
+[FOCUS-LEFT]
+[PAUSE]
+[CLEAR] 5
+//  ************
+
+
+[PRESENTATION]
+# BUFFERS
+
+** Buffers are important....**
+** **
+** ALT-B Displays buffer swap list**
+
+[FOCUS-RIGHT] 
+[CLEAR] 6
+[CMD] ALT-B
+[BEEP]
+[STEP]
+
+[FOCUS-LEFT]
+[CLEAR] 5
+[PAUSE[ 2
+[PRESENTATION]
+## BUFFER LAYOUT VIEW
+* *
+** Buffers can be previewed and selected in Layout View....**
+** CTRL-ALT-B Displays 8 buffers at once**
+[FOCUS-RIGHT] 
+[CLEAR] 6
+[CMD] CTRL-ALT-B
+[BEEP]
+[STEP]
+#[PAUSE]
+
+[PASTE] SCRIPT DONE!    

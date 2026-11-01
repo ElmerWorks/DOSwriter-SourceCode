@@ -1,0 +1,178 @@
+DOSwriter Outline Manager Tag System Specification
+Purpose
+Provide a lightweight, project-level tagging system for organizing and locating files within an Outline Manager project without modifying the underlying files.
+The tag system shall support text, Markdown, images, PDFs, remote files, and any future document types.
+
+Tag Storage
+Each Outline Manager file container may contain an optional list of tags.
+Examples:
+Chapter1.md
+    #draft #chapter1 #novel
+
+Map.png
+    #reference #map
+
+Research.pdf
+    #biology #important
+Tags are stored within the .epol project file and are not written into the linked files.
+
+Tag Syntax
+Supported formats:
+#draft
+#todo
+#reference
+or
+draft, chapter1, novel
+Internally, tags are normalized by:
+* trimming whitespace
+* converting to lowercase
+* removing duplicates
+* sorting alphabetically for storage
+
+Outline Search
+The Outline Manager search bar shall support:
+* filename search
+* folder name search
+* tag search
+Typing:
+draft
+or
+#draft
+shall return every Outline item containing that tag.
+Results are displayed as a flat ordered list while preserving the original project hierarchy internally.
+Selecting a result opens or previews the associated file.
+
+Tag Pick List
+The search field includes a drop-down list of all defined tags.
+Features:
+* alphabetically sorted
+* searchable
+* displays usage count
+Example:
+chapter1 (4)
+
+draft (12)
+
+important (3)
+
+reference (21)
+
+todo (7)
+Selecting a tag immediately filters the Outline.
+
+Tag Editing
+Tags may be edited from:
+* Add File
+* Rename/Edit Properties
+* Context Menu
+* Keyboard shortcut (optional)
+Tag editing shall never modify the underlying document.
+
+Multiple Tags
+A file may contain any number of tags.
+Example:
+#chapter4 #draft #dialog #needs-review
+Searching any tag includes the file.
+
+Search Outside the Outline Manager
+Use Ctrl-Alt-F to launch Open by Tag menu
+Tag search shall be available globally throughout DOSwriter.
+Examples:
+* Global �Open by Tag�
+* Workspace search
+* Command Palette
+* Quick Open dialog
+The user should not need to open the Outline Manager to locate tagged files.
+
+Recent Searches
+Maintain a short history of recent tag searches.
+Example:
+Recent
+
+#draft
+
+#reference
+
+#todo
+
+#chapter3
+
+Favorites
+Allow users to pin frequently used tags.
+Example:
+Pinned
+
+#todo
+
+#draft
+
+#reference
+Pinned tags appear at the top of the tag picker.
+
+Boolean Search (Future)
+Support simple expressions:
+draft review
+
+draft -complete
+
+reference pdf
+Equivalent to:
+draft AND review
+
+draft NOT complete
+
+reference AND pdf
+No advanced query language is required.
+
+Automatic Tags (Optional)
+DOSwriter may automatically maintain system tags that are hidden from normal editing.
+Examples:
+:text
+
+:markdown
+
+:image
+
+:pdf
+
+:remote
+
+:modified
+
+:readonly
+These enable searches such as:
+:image
+
+:markdown
+
+:remote
+without requiring user-defined tags.
+
+Workspace Support
+Tags are scoped to the current workspace by default.
+An optional �Search All Workspaces� mode searches every workspace and displays workspace names with the results.
+Example:
+Novel
+
+Chapter3.md
+
+Research
+
+Timeline.pdf
+
+Journal
+
+Daily Notes.md
+
+Performance
+Searching shall operate entirely on Outline metadata.
+The contents of linked documents are not scanned during tag searches.
+Search results should appear instantly even for large projects.
+
+Design Goals
+* Zero impact on document formats
+* Keyboard-first workflow
+* Minimal visual clutter
+* Fast enough for e-ink devices
+* Consistent across all supported file types
+* Extensible without changing the .epol format

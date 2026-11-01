@@ -1,0 +1,233 @@
+DOSwriter Hardware Abstraction Layer (HAL) Specification
+Purpose
+The Hardware Abstraction Layer (HAL) provides a common interface between DOSwriter and device-specific hardware features while maintaining a single universal APK for all Android devices. The HAL allows DOSwriter to take advantage of enhanced features on supported devices (such as BOOX frontlight control and E-Ink refresh modes) while gracefully falling back to standard Android functionality when no vendor-specific APIs are available.
+The HAL is designed to be user-driven rather than relying solely on automatic hardware detection, which is unreliable across Android devices.
+
+## Design Goals
+* One APK supports all Android devices.
+* No root access required.
+* Standard Android devices continue to use Android APIs.
+* Vendor-specific APIs are optional enhancements.
+* Users always retain the ability to override automatic detection.
+* New hardware vendors can be added without changing the editor core.
+
+## First-Run Hardware Setup Wizard
+After installation, DOSwriter displays a one-time Hardware Setup screen.
+Step 1 � Display Type
+Select the display technology:
+* Backlit LCD/OLED
+* Color E-Ink
+* Monochrome E-Ink
+This selection establishes the base hardware profile.
+
+## Step 2 � Manufacturer (E-Ink only)
+If Color or Monochrome E-Ink is selected:
+Choose device manufacturer:
+* Auto Detect
+* BOOX (Onyx)
+* Bigme
+* Supernote
+* Kindle Android-based (future)
+* Other / Unknown
+This allows users to explicitly identify their hardware even if Android cannot.
+
+## Step 3 � API Detection
+DOSwriter attempts to initialize the appropriate HAL provider.
+Example:
+Selected:
+BOOX
+
+Searching for Onyx SDK...
+
+? Onyx SDK detected
+? BOOX Hardware Support Enabled
+or
+Selected:
+BOOX
+
+Searching for Onyx SDK...
+
+SDK Not Found
+
+Using Generic Android Support
+No errors are generated. The application remains fully functional.
+
+## Hardware Provider Architecture
+The editor communicates only with the HAL.
+Editor
+    ?
+    ?
+Hardware Abstraction Layer
+    ?
+    ??? Generic Android Provider
+    ??? BOOX Provider
+    ??? Bigme Provider
+    ??? Supernote Provider
+    ??? Future Providers
+The editor never calls vendor APIs directly.
+
+## Provider Interface
+Each provider implements a common interface.
+Example responsibilities include:
+* Initialize hardware
+* Adjust brightness/frontlight
+* Control E-Ink refresh mode
+* Perform full-screen refresh
+* Query supported capabilities
+* Shut down cleanly
+Unsupported functions simply return �Not Supported.�
+
+## Capability-Based Design
+Each provider reports its capabilities.
+Example:
+Brightness Control
+
+Warm Light
+
+Refresh Modes
+
+Full Refresh
+
+Stylus Support
+
+Hardware Keyboard Extensions
+
+Custom Navigation Keys
+The user interface only displays settings supported by the active provider.
+
+## Generic Android Provider
+Available on all devices.
+Supports:
+* Android brightness APIs
+* Standard display behavior
+* Standard keyboard handling
+Does not expose:
+* E-Ink refresh controls
+* Vendor-specific features
+This provider serves as the default fallback.
+
+## BOOX Provider
+Uses the official Onyx Android SDK when available.
+Potential features include:
+* Frontlight brightness
+* Warm/cool light adjustment
+* Refresh mode selection
+* Full display refresh
+* Fast refresh mode
+* Ghosting reduction
+* Pen extensions (future)
+If initialization fails, the provider automatically reverts to Generic Android.
+
+## Bigme Provider
+Uses official Bigme SDK or APIs when available.
+Potential features:
+* Frontlight control
+* Refresh control
+* Display optimization
+If APIs are unavailable:
+Bigme support unavailable.
+
+Using Generic Android mode.
+
+## Supernote Provider
+Uses official Supernote APIs when available.
+Potential future features:
+* Pen integration
+* Display refresh
+* Navigation enhancements
+Many Supernote devices do not include a frontlight. Brightness controls should therefore be hidden.
+
+## Fallback Behavior
+Failure to initialize a provider is never considered an application error.
+Example:
+Selected Provider:
+BOOX
+
+SDK Found:
+No
+
+Result:
+Generic Android Provider Activated
+The editor remains fully operational.
+
+## Hardware Settings Screen
+Users may revisit Hardware Settings at any time.
+Settings
+
+Hardware
+
+Display Type
+
+Manufacturer
+
+Active Provider
+
+Capabilities
+
+Test Hardware
+
+Re-run Detection
+
+## Hardware Test
+A diagnostic page displays:
+Detected Device
+
+Manufacturer
+
+Model
+
+Android Version
+
+Selected Profile
+
+Active Provider
+
+Detected SDK
+
+Supported Features
+Example:
+Manufacturer:
+ONYX
+
+Model:
+BOOX Go Color 7
+
+Selected:
+BOOX
+
+Provider:
+BOOX Provider
+
+SDK:
+Detected
+
+Capabilities
+
+? Frontlight
+
+? Refresh Modes
+
+? Full Refresh
+
+? Warm Light
+
+## Future Expansion
+The provider model allows support for additional devices without modifying editor functionality.
+Potential future providers include:
+* BOOX
+* Bigme
+* Supernote
+* Hanvon
+* Hisense E-Ink phones
+* Dasung monitors
+* Future Android E-Ink devices
+Each provider simply implements the same HAL interface.
+
+## Benefits
+* Single APK for every Android device.
+* No impact on users of conventional LCD/OLED hardware.
+* Vendor-specific enhancements remain optional.
+* Simple mechanism for supporting new E-Ink devices.
+* User-guided configuration avoids unreliable automatic detection.
+* Graceful fallback ensures DOSwriter always remains usable, even when vendor APIs are unavailable.
+This architecture cleanly separates DOSwriter�s editor logic from device-specific code, making it easier to maintain and extend as new Android E-Ink hardware becomes available.

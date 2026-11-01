@@ -1,0 +1,86 @@
+{
+  "layout_name": "English-Alpha",
+  "rows": [
+    {
+      "keys": [
+        { "label": "!\n1", "weight": 1.0, "type": "CHAR", "value": "1", "shift_val": "!", "alt_cmd": "SWITCH_B1" },
+        { "label": "@\n2", "weight": 1.0, "type": "CHAR", "value": "2", "shift_val": "@", "alt_cmd": "SWITCH_B2" },
+        { "label": "#\n3", "weight": 1.0, "type": "CHAR", "value": "3", "shift_val": "#", "alt_cmd": "SWITCH_B3" },
+        { "label": "$\n4", "weight": 1.0, "type": "CHAR", "value": "4", "shift_val": "$", "alt_cmd": "SWITCH_B4" },
+        { "label": "%\n5", "weight": 1.0, "type": "CHAR", "value": "5", "shift_val": "%", "alt_cmd": "SWITCH_B5" },
+        { "label": "^\n6", "weight": 1.0, "type": "CHAR", "value": "6", "shift_val": "^", "alt_cmd": "SWITCH_B6" },
+        { "label": "&\n7", "weight": 1.0, "type": "CHAR", "value": "7", "shift_val": "&", "alt_cmd": "SWITCH_B7" },
+        { "label": "*\n8", "weight": 1.0, "type": "CHAR", "value": "8", "shift_val": "*", "alt_cmd": "SWITCH_B8" },
+        { "label": "(\n9", "weight": 1.0, "type": "CHAR", "value": "9", "shift_val": "(", "ctrl_cmd": "FLUSH_LOG", "alt_cmd": "SWITCH_B9" },
+        { "label": ")\n0", "weight": 1.0, "type": "CHAR", "value": "0", "shift_val": ")" }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "\u241B", "weight": 1.0, "type": "CMD", "cmd": "EXIT_SPLIT" },
+        { "label": "\u2318", "weight": 1.0, "type": "CMD", "cmd": "MINIMIZE" },
+        { "label": "", "weight": 1.0, "type": "CMD", "cmd": "NONE" },
+        { "label": ">>", "weight": 1.0, "type": "CMD", "cmd": "MacroInsert", "ctrl_cmd": "MacroEdit" },
+        { "label": "", "weight": 1.0, "type": "CMD", "cmd": "NONE" },
+        { "label": ",", "weight": 1.0, "type": "CHAR", "value": "," },
+        { "label": ".", "weight": 1.0, "type": "CHAR", "value": "." },
+        { "label": "\u2388L", "weight": 1.0, "type": "CMD", "cmd": "CTRL_LOCK" },
+        { "label": "&@", "weight": 1.0, "type": "CMD", "cmd": "KBD_PUNC" },
+        { "label": "#+", "weight": 1.0, "type": "CMD", "cmd": "KBD_NUM" }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "Q", "weight": 1.0, "type": "CHAR", "value": "q", "shift_val": "Q" },
+        { "label": "W", "weight": 1.0, "type": "CHAR", "value": "w", "shift_val": "W", "ctrl_cmd": "CLOSE" },
+        { "label": "E", "weight": 1.0, "type": "CHAR", "value": "e", "shift_val": "E" },
+        { "label": "R", "weight": 1.0, "type": "CHAR", "value": "r", "shift_val": "R", "ctrl_cmd": "REPLACE", "alt_cmd": "RENDER" },
+        { "label": "T", "weight": 1.0, "type": "CHAR", "value": "t", "shift_val": "T", "ctrl_cmd": "THEME", "alt_cmd": "TYPEWRITER" },
+        { "label": "Y", "weight": 1.0, "type": "CHAR", "value": "y", "shift_val": "Y" },
+        { "label": "U", "weight": 1.0, "type": "CHAR", "value": "u", "shift_val": "U" },
+        { "label": "I", "weight": 1.0, "type": "CHAR", "value": "i", "shift_val": "I", "ctrl_cmd": "SCREENSHOT" },
+        { "label": "O", "weight": 1.0, "type": "CHAR", "value": "o", "shift_val": "O", "ctrl_cmd": "OPEN" },
+        { "label": "P", "weight": 1.0, "type": "CHAR", "value": "p", "shift_val": "P", "ctrl_cmd": "PDF_EXPORT", "alt_cmd": "ToggleTodoWorkspace" }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "A", "weight": 1.0, "type": "CHAR", "value": "a", "shift_val": "A", "ctrl_cmd": "SELECT_ALL" },
+        { "label": "S", "weight": 1.0, "type": "CHAR", "value": "s", "shift_val": "S", "ctrl_cmd": "SAVE", "alt_cmd": "SPLIT" },
+        { "label": "D", "weight": 1.0, "type": "CHAR", "value": "d", "shift_val": "D", "alt_cmd": "SYNC" },
+        { "label": "F", "weight": 1.0, "type": "CHAR", "value": "f", "shift_val": "F", "ctrl_cmd": "FIND", "alt_cmd": "PageUp" },
+        { "label": "G", "weight": 1.0, "type": "CHAR", "value": "g", "shift_val": "G", "alt_cmd": "PageDown" },
+        { "label": "H", "weight": 1.0, "type": "CHAR", "value": "h", "shift_val": "H", "ctrl_cmd": "HELP", "alt_cmd": "STATUS" },
+        { "label": "J", "weight": 1.0, "type": "CHAR", "value": "j", "shift_val": "J" },
+        { "label": "K", "weight": 1.0, "type": "CHAR", "value": "k", "shift_val": "K", "ctrl_cmd": "BOOKMARK", "alt_cmd": "V_KBD" },
+        { "label": "L", "weight": 1.0, "type": "CHAR", "value": "l", "shift_val": "L", "ctrl_cmd": "SETTINGS" },
+        { "label": "⌫", "weight": 1.0, "type": "CMD", "cmd": "DELETE" }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "\u2326", "weight": 1.0, "type": "CMD", "cmd": "DELETE_FORWARD" },
+        { "label": "Z", "weight": 1.0, "type": "CHAR", "value": "z", "shift_val": "Z", "ctrl_cmd": "UNDO" },
+        { "label": "X", "weight": 1.0, "type": "CHAR", "value": "x", "shift_val": "X", "ctrl_cmd": "CUT", "alt_cmd": "EXIT" },
+        { "label": "C", "weight": 1.0, "type": "CHAR", "value": "c", "shift_val": "C", "ctrl_cmd": "COPY", "alt_cmd": "CENTER" },
+        { "label": "V", "weight": 1.0, "type": "CHAR", "value": "v", "shift_val": "V", "ctrl_cmd": "PASTE" },
+        { "label": "B", "weight": 1.0, "type": "CHAR", "value": "b", "shift_val": "B", "ctrl_cmd": "BUFFERS", "alt_cmd": "BUFFERS" },
+        { "label": "N", "weight": 1.0, "type": "CHAR", "value": "n", "shift_val": "N", "ctrl_cmd": "NEW", "alt_cmd": "FOCUS" },
+        { "label": "M", "weight": 1.0, "type": "CHAR", "value": "m", "shift_val": "M", "alt_cmd": "MARGINS" },
+        { "label": "↑", "weight": 1.0, "type": "CMD", "cmd": "UP" },
+        { "label": "\u23CE", "weight": 1.0, "type": "CHAR", "value": "\n" }
+      ]
+    },
+    {
+      "keys": [
+        { "label": "\u2388", "weight": 2.0, "type": "MODIFIER", "value": "CTRL" },
+        { "label": "\u2387", "weight": 1.0, "type": "MODIFIER", "value": "ALT" },
+        { "label": "\u21E7", "weight": 2.0, "type": "MODIFIER", "value": "SHIFT" },
+        { "label": "\u2423", "weight": 2.0, "type": "CHAR", "value": " " },
+        { "label": "←", "weight": 1.0, "type": "CMD", "cmd": "LEFT" },
+        { "label": "↓", "weight": 1.0, "type": "CMD", "cmd": "DOWN" },
+        { "label": "→", "weight": 1.0, "type": "CMD", "cmd": "RIGHT" }
+      ]
+    }
+  ]
+}
